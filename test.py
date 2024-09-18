@@ -1,1 +1,2 @@
-for i in rand=ge
+for i in range(5):
+    print('neuille')
