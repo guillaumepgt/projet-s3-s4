@@ -19,32 +19,19 @@ int main(){
         }
         
         fichier >> largeur >> longueur >> valeurMax;        //stocke la longueur et la largeur du tableau et la valeur max des couleurs
-        std::cout << largeur << " " << longueur << " " << valeurMax << std::endl; 
-        int** pValeur =  new int*[largeur]; //faire tableau de tableau
+        std::cout << largeur << " " << longueur << " " << valeurMax << std::endl; //print les valeurs pour test
+        int** pValeur =  new int*[largeur]; //fait une liste de pointeurs
         
         for (int i=0; i<largeur; i++){
-            pValeur[i] = new int[3];
+            pValeur[i] = new int[3];   //Fait correspondre chaque pointeur de la liste à une liste de 3 valeurs pour chaque pixel
         
         }
         for (int j=1; j<(longueur/2)-1; j++){
             for (int i=0; i<largeur; i++){
-                fichier >> pValeur[i][0] >> pValeur[i][1] >> pValeur[i][2];
-                std::cout << pValeur[i][0] << " " << pValeur[i][1] << " " << pValeur[i][2] << std::endl;
+                fichier >> pValeur[i][0] >> pValeur[i][1] >> pValeur[i][2];                                  //Bout de code extremement mal optimisé qui lit l'entiereté des pixels jusqu'au milieu de l'image
+                std::cout << pValeur[i][0] << " " << pValeur[i][1] << " " << pValeur[i][2] << std::endl;     //Print chaque pixel
             }
         }
-
-
-
-
-    //while (fichier >> valeur) {
-      //  std::cout << valeur << std::endl;
-        //std::cout << "/" << std::endl;
-    //}
-    
-    
-
-
-
     fichier.close();
 
     for (int i = 0; i < largeur; i++) {
