@@ -1,1 +1,0 @@
-cmd='/usr/bin/cmake;-DSDKCONFIG=/app/sdkconfig;-DIDF_PATH=/esp-idf;-DIDF_TARGET=esp32;-DPYTHON_DEPS_CHECKED=1;-DPYTHON=/root/.espressif/python_env/idf5.2_py3.11_env/bin/python;-DEXTRA_COMPONENT_DIRS=/esp-idf/components/bootloader;-DPROJECT_SOURCE_DIR=/app;-DIGNORE_EXTRA_COMPONENT=;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

@@ -1,2 +1,0 @@
-/root/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libesp_coex.a CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj
-/root/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libesp_coex.a
