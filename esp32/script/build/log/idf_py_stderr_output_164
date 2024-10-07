@@ -1,0 +1,34 @@
+/app/main/wifi.c:14:1: error: unknown type name 'WebServer'
+   14 | WebServer server(80);
+      | ^~~~~~~~~
+/app/main/wifi.c:14:18: error: expected declaration specifiers or '...' before numeric constant
+   14 | WebServer server(80);
+      |                  ^~
+/app/main/wifi.c: In function 'setup':
+/app/main/wifi.c:17:5: error: 'Serial' undeclared (first use in this function)
+   17 |     Serial.begin(115200);
+      |     ^~~~~~
+/app/main/wifi.c:17:5: note: each undeclared identifier is reported only once for each function it appears in
+/app/main/wifi.c:20:5: error: 'WiFi' undeclared (first use in this function)
+   20 |     WiFi.softAP(ssid, password);
+      |     ^~~~
+/app/main/wifi.c:20:17: error: 'ssid' undeclared (first use in this function)
+   20 |     WiFi.softAP(ssid, password);
+      |                 ^~~~
+/app/main/wifi.c:20:23: error: 'password' undeclared (first use in this function)
+   20 |     WiFi.softAP(ssid, password);
+      |                       ^~~~~~~~
+/app/main/wifi.c:27:5: error: 'server' undeclared (first use in this function)
+   27 |     server.on("/", []() {
+      |     ^~~~~~
+/app/main/wifi.c:27:20: error: expected expression before '[' token
+   27 |     server.on("/", []() {
+      |                    ^
+/app/main/wifi.c: In function 'loop':
+/app/main/wifi.c:38:5: error: 'server' undeclared (first use in this function)
+   38 |     server.handleClient();
+      |     ^~~~~~
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:76: esp-idf/main/CMakeFiles/__idf_main.dir/wifi.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:4592: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:136: all] Error 2
