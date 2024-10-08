@@ -7,7 +7,7 @@
     int longueur;
     int valeurMax;
     int main(){
-        std::ifstream fichier("photo.ppm");
+        std::ifstream fichier("photo2.ppm");
         if (fichier.is_open()) {                            // ouvre le fichier
             fichier >> format;                              // donne le format du .ppm dans la variable format
             std::cout << format << std::endl;               // print le format du fichier (ligne pour verification)
@@ -25,7 +25,12 @@
             int** pValeur = new int*[largeur];
 
             
-            fichier.seekg(1+4*3*largeur*(longueur/2), std::ios::cur);
+            for (int y = 0; y < longueur / 2; y++) {
+                for (int x = 0; x < largeur * 3; x++) {
+                    fichier >> valeur;  // Lire et ignorer les pixels jusqu'au milieu
+                }
+            }
+            
             std::cout << fichier.tellg() << std::endl;
             
             for (int i=0; i<largeur; i++){
@@ -40,7 +45,6 @@
                     test << pValeur[i][j] <<" ";
                 }
                 test << " " ;
-                //std::cout << pValeur[i][0] << " " <<  pValeur[i][1] << " " << pValeur[i][2] << std::endl;
             }
             
         fichier.close();
@@ -49,6 +53,9 @@
             delete[] pValeur[i];  // Libération des colonnes
             }
             delete[] pValeur;  // Libération des lignes
+        
+        } else {
+            std::cerr << "Impossible d'ouvrir le fichier." << std::endl;
         }
     }
 
