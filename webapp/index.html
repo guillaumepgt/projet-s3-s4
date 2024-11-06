@@ -1,30 +1,68 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html> <!-- Déclare que le document est un document HTML5. Cela aide le navigateur à interpréter correctement le contenu. -->
+<html lang="fr">    <!-- Ouvre la balise <html> et spécifie que la langue du document est le français (lang="fr"). -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="./index.css?v=1.0" rel="stylesheet">
-    <title>Ajouter un nouveau produit</title>
-</head>
-<body>
-
-    <h1>Ajouter un nouveau produit</h1>
     
-    <form action="/ajouter_produit" method="POST">
-        <label for="nom_produit">Nom du produit :</label>
-        <input type="text" id="nom_produit" name="nom_produit" placeholder="Ex: Pâte Barilla 1 kilogramme" required>
+    <meta charset="UTF-8">  <!-- Définit l'encodage de caractères utilisé dans le document,
+                                 ici UTF-8, qui permet de supporter un large éventail de caractères, y compris les caractères accentués. -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <!-- La balise <meta> permet d'indiquer au navigateur comment adapter le contenu pour les écrans de différentes tailles 
+         (par exemple, les appareils mobiles). "width=device-width" définit la largeur de la page égale à celle de l'écran, 
+         et "initial-scale=1.0" définit le niveau de zoom initial. -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <!-- Cette balise <meta> permet d'indiquer que le navigateur doit utiliser la dernière version disponible du moteur de rendu,
+         en particulier pour Internet Explorer. Cela garantit une meilleure compatibilité avec les standards modernes. -->
+    
+    <link href="./index.css?v=1.0" rel="stylesheet">   
+    <!-- Lien vers une feuille de style externe (index.css) avec un paramètre de version "v=1.0" pour forcer le navigateur
+         à recharger le fichier lorsque la version change (utile lors des mises à jour). -->
+     
+    <title>Ajouter un nouveau produit</title>   <!-- Définit le titre de la page qui sera affiché dans l'onglet du navigateur. -->
+</head>
+<body>  <!-- Ouvre la balise <body> qui contient le contenu visible de la page. -->
+    <div>
+    <h1>Ajouter un nouveau produit</h1>  <!-- Titre principal de la page (balise <h1>) qui explique l'objectif de la page -->
+        
+    <form action="/ajouter_produit" method="POST"> 
+    <!-- La balise <form> définit un formulaire.L'attribut "action" spécifie l'URL ("/ajouter_produit")
+         à laquelle les données du formulaire seront envoyées lorsque l'utilisateur soumettra le formulaire. 
+         L'attribut "method" spécifie la méthode HTTP (ici POST) pour envoyer les données. -->
+        
+        <label for="nom_produit">Nom du produit :</label>   
+        <!-- La balise <label> permet de créer une étiquette descriptive pour l'élément de formulaire suivant. 
+             L'attribut "for" associe cette étiquette au champ de saisie identifié par l'ID "nom_produit". -->
+        
+        <input type="text" id="nom_produit" name="nom_produit" placeholder="Ex: Pâte Barilla 1 kilogramme" required>   
+        <!-- L'élément <input> crée un champ de saisie pour l'utilisateur. "type=text" indique qu'il s'agit d'un champ de texte.
+             "id" et "name" permettent d'identifier ce champ dans le code HTML et lors de l'envoi du formulaire.
+             "placeholder" fournit un exemple de texte à afficher dans le champ avant que l'utilisateur n'entre ses propres données. 
+             "required" signifie que l'utilisateur doit remplir ce champ avant de soumettre le formulaire. -->
 
-        <label for="prix_produit">Prix (€) :</label>
-        <input type="number" step="0.01" id="prix_produit" name="prix_produit" placeholder="Ex: 3,20" required>
+        
+        <label for="prix_produit">Prix (€) :</label>    <!-- Une autre étiquette pour le champ de saisie du prix. -->
+        
+        <input type="number" step="0.01" id="prix_produit" name="prix_produit" placeholder="Ex: 3,20" required>  
+        <!-- Le champ de saisie pour le prix est de type "number", ce qui permet de saisir des valeurs numériques.
+             "step=0.01" autorise les décimales avec une précision jusqu'à deux chiffres après la virgule (par exemple, 3.20). -->
 
-        <label for="code_barre">Code barre :</label>
-        <input type="text" id="code_barre" name="code_barre" placeholder="Ex: 123456789012" required>
+        
+        <label for="code_barre">Code barre :</label>    <!-- Étiquette pour le champ de saisie du code barre. -->
+        
+        <input type="text" id="code_barre" name="code_barre" placeholder="Ex: 123456789012" required>  
+        <!-- Un autre champ de saisie de type "text" pour entrer le code barre du produit. 
+             "placeholder" fournit un exemple de code barre. -->
 
-        <input type="submit" value="Ajouter le produit">
+        
+        <input type="submit" value="Ajouter le produit">    
+        <!-- Le bouton de soumission du formulaire. Lorsque l'utilisateur clique dessus, 
+             les données du formulaire sont envoyées à l'URL définie dans l'attribut "action" du formulaire. -->
     </form>
+    </div>
 
-</body>
-</html>
+</body> <!-- Fermeture de la balise <body> qui contient le contenu principal de la page. -->
+</html> <!-- Fermeture de la balise <html> qui englobe tout le contenu du document HTML. -->
+
+
 
    
