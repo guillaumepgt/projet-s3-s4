@@ -70,13 +70,13 @@
 
     }
 
-    int detecLargeurColonne()
+    int LectureCodeBarre()
     {
         int valeur = 255;
         int largeurRef=0;
         int compteur=0;
         int largeurBande=0;
-        int i=0;
+        int i=1;
         std::ifstream fichier("Ligne code barre.txt");
         if (fichier.is_open())       // ouvre le fichier
         {
@@ -96,9 +96,8 @@
             std::cout << compteur << "largeurRef" << std::endl;
             largeurRef=compteur;
             int* pCode = new int[67];
-            pCode[0]=0;
-
-            while (i<=67)
+            pCode[0]=1;
+            while (i<67)
             {
                 compteur=0;
                 if (valeur>=128)
@@ -115,24 +114,28 @@
                         fichier >> valeur;
                         compteur++;
                     }            
-                }
+                } 
                 largeurBande=compteur/largeurRef;
-                if (compteur%largeurRef>0)
+                if ((compteur%largeurRef>0) and (compteur%largeurRef>largeurRef/2))
                 {
                     largeurBande++;
                 }
                 for (int j=i; j<=i+largeurBande-1; j++)
                 {
-                    if (pCode[i-1]=0) {pCode[j]=1;}
-                    if (pCode[i-1]=1) {pCode[j]=0;}
+                    if (pCode[i-1]==0) {pCode[j]=1;}
+                    if (pCode[i-1]==1) {pCode[j]=0;}
                 }
                 i=i+largeurBande;
 
             }
+            std::ofstream fichierCodebarre("Codebarrebinaire.txt");
             for (int j =0; j<67; j++)
             {
                 std::cout<< pCode[j] << std::endl;
+                fichierCodebarre << pCode[j];
             }
+            fichierCodebarre.close();
+            delete[] pCode;
 
             
             
@@ -154,7 +157,8 @@
 
     int main()
     {
-        std::cout << detecLargeurColonne()<< std::endl;
+        recupLigne();
+        LectureCodeBarre();
     }
 
 
