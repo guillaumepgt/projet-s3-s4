@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-container
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./html:/usr/share/nginx/html
+    ports:
+      - "80:80"
+    depends_on:
+      - php-fpm
+    restart: always
+
+  php-fpm:
+    image: php:8.1-fpm
+    container_name: php-fpm
+    volumes:
+      - ./html:/usr/share/nginx/html
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=project
+      - MYSQL_PASSWORD=12345678
+    command: >
+      sh -c "docker-php-ext-install pdo pdo_mysql &&
+             php-fpm"
+  
+
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: database
+      MYSQL_USER: project
+      MYSQL_PASSWORD: 12345678
+
+    volumes:
+      - mysql_database_project:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql_database_project:
